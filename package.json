@@ -1,0 +1,22 @@
+{
+  "name": "electron-remote-control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/main/index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:render\" \"wait-on http://localhost:3000 && npm run start:main\" ",
+    "start:main": "electron .",
+    "start:render": "cd app/renderer/src/main && npm start"
+  },
+  "keywords": [],
+  "author": "饶驹",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "electron": "^23.1.1",
+    "react-app-rewired": "^2.2.1",
+    "wait-on": "^7.0.1"
+  }
+}
