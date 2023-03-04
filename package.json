@@ -4,7 +4,7 @@
   "description": "",
   "main": "./app/main/index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:render\" \"wait-on http://localhost:3000 && npm run start:main\" ",
+    "start": "concurrently \"npm run start:render\" \"npm run start:main\" ",
     "start:main": "electron .",
     "start:render": "cd app/renderer/src/main && npm start"
   },
@@ -17,6 +17,11 @@
     "customize-cra": "^1.0.0",
     "electron": "^23.1.1",
     "react-app-rewired": "^2.2.1",
+    "react-scripts": "^5.0.1",
     "wait-on": "^7.0.1"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.0.9",
+    "electron-is-dev": "^2.0.0"
   }
 }

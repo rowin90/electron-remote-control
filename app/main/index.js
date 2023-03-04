@@ -1,7 +1,7 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
-// const handleIPC = require('./ipc')
-// const {create: createMainWindow, show: showMainWindow, close: closeMainWindow} = require('./windows/main')
+const handleIPC = require('./ipc')
+const {create: createMainWindow, show: showMainWindow, close: closeMainWindow} = require('./windows/main')
 // const {create: createControlWindow} = require('./windows/control')
 // const gotTheLock = app.requestSingleInstanceLock()
 // if(!gotTheLock) {
@@ -10,13 +10,13 @@ const path = require('path')
 //     app.on('second-instance', () => {
 //         showMainWindow()
 //     })
-//     app.on('ready', () => {
-//         // createControlWindow()
-//         createMainWindow()
-//         handleIPC()
-//         require('./trayAndMenu')
-//         require('./robot.js')()
-//     })
+    app.on('ready', () => {
+        // createControlWindow()
+        createMainWindow()
+        handleIPC()
+        // require('./trayAndMenu')
+        // require('./robot.js')()
+    })
 //     app.on('before-quit', () => {
 //         closeMainWindow()
 //     })
@@ -25,17 +25,22 @@ const path = require('path')
 //     })
 // }
 
-app.on('ready',()=>{
-    const win = new BrowserWindow({
-        width:600,
-        height:400,
-        webPreferences:{
-            nodeIntegration:true,
-            contextIsolation:false
-        }
-    })
-
-    win.loadURL('http://localhost:3000')
 
 
-})
+
+// app.on('ready',()=>{
+//     const win = new BrowserWindow({
+//         width:600,
+//         height:400,
+//         webPreferences:{
+//             nodeIntegration:true,
+//             contextIsolation:false
+//         }
+//     })
+//
+//     win.loadURL('http://localhost:3000')
+//
+//     handleIPC()
+//
+//
+// })
