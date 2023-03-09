@@ -15,7 +15,7 @@ const {create: createControlWindow} = require('./windows/control')
         // createMainWindow()
         handleIPC()
         // require('./trayAndMenu')
-        // require('./robot.js')()
+        require('./robot.js')()
     })
 //     app.on('before-quit', () => {
 //         closeMainWindow()

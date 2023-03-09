@@ -15,6 +15,7 @@ function play(stream) {
 
 window.onkeydown = function(e) {
     // data {keyCode, meta, alt, ctrl, shift}
+    console.log("-> e", e);
     let data = {
         keyCode: e.keyCode,
         shift: e.shiftKey,
