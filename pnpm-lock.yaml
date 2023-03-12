@@ -13,12 +13,14 @@ specifiers:
   robotjs: ^0.6.0
   vkey: ^1.0.1
   wait-on: ^7.0.1
+  ws: ^8.13.0
 
 dependencies:
   '@electron/remote': registry.npmmirror.com/@electron/remote/2.0.9_electron@23.1.1
   electron-is-dev: registry.npmmirror.com/electron-is-dev/2.0.0
   robotjs: registry.npmmirror.com/robotjs/0.6.0
   vkey: registry.npmmirror.com/vkey/1.0.1
+  ws: registry.npmmirror.com/ws/8.13.0
 
 devDependencies:
   concurrently: registry.npmmirror.com/concurrently/7.6.0
@@ -13446,7 +13448,7 @@ packages:
       spdy: registry.npmmirror.com/spdy/4.0.2
       webpack: registry.npmmirror.com/webpack/5.75.0
       webpack-dev-middleware: registry.npmmirror.com/webpack-dev-middleware/5.3.3_webpack@5.75.0
-      ws: registry.npmmirror.com/ws/8.12.1
+      ws: registry.npmmirror.com/ws/8.13.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -13912,10 +13914,10 @@ packages:
         optional: true
     dev: true
 
-  registry.npmmirror.com/ws/8.12.1:
-    resolution: {integrity: sha512-1qo+M9Ba+xNhPB+YTWUlK6M17brTut5EXbcBaMRN5pH5dFrXz7lzz1ChFSUq3bOUl8yEvSenhHmYUNJxFzdJew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ws/-/ws-8.12.1.tgz}
+  registry.npmmirror.com/ws/8.13.0:
+    resolution: {integrity: sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ws/-/ws-8.13.0.tgz}
     name: ws
-    version: 8.12.1
+    version: 8.13.0
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -13925,7 +13927,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: true
 
   registry.npmmirror.com/xml-name-validator/3.0.0:
     resolution: {integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz}

@@ -11,7 +11,7 @@ function create() {
         }
     })
 
-    require('@electron/remote/main').initialize()
+    // require('@electron/remote/main').initialize()
     require("@electron/remote/main").enable(win.webContents)
 
     win.loadFile(path.resolve(__dirname, '../../renderer/pages/control/index.html'))
