@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {ipcRenderer} from 'electron'
 const remote = window.require('@electron/remote')
-// import './peer-puppet'
+import './peer-puppet'
 
-console.log("-> remote",remote,ipcRenderer);
 const {Menu, MenuItem} = remote
 
 function App() {
