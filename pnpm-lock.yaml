@@ -6,6 +6,7 @@ specifiers:
   cross-env: ^7.0.3
   customize-cra: ^1.0.0
   electron: ^23.1.1
+  electron-about-window: ^1.15.2
   electron-is-dev: ^2.0.0
   electron-rebuild: ^3.2.9
   react-app-rewired: ^2.2.1
@@ -17,6 +18,7 @@ specifiers:
 
 dependencies:
   '@electron/remote': registry.npmmirror.com/@electron/remote/2.0.9_electron@23.1.1
+  electron-about-window: registry.npmmirror.com/electron-about-window/1.15.2
   electron-is-dev: registry.npmmirror.com/electron-is-dev/2.0.0
   robotjs: registry.npmmirror.com/robotjs/0.6.0
   vkey: registry.npmmirror.com/vkey/1.0.1
@@ -5672,6 +5674,12 @@ packages:
     dependencies:
       jake: registry.npmmirror.com/jake/10.8.5
     dev: true
+
+  registry.npmmirror.com/electron-about-window/1.15.2:
+    resolution: {integrity: sha512-iKQOdMOxybXRAycwr8rGYfCky1lcADlFGdQRnOW+ZUq24agIOgzQqRsaVv+2Tiah24wS13yKuHMuyORcKybEEg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/electron-about-window/-/electron-about-window-1.15.2.tgz}
+    name: electron-about-window
+    version: 1.15.2
+    dev: false
 
   registry.npmmirror.com/electron-is-dev/2.0.0:
     resolution: {integrity: sha512-3X99K852Yoqu9AcW50qz3ibYBWY79/pBhlMCab8ToEWS48R0T9tyxRiQhwylE7zQdXrMnx2JKqUJyMPmt5FBqA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/electron-is-dev/-/electron-is-dev-2.0.0.tgz}

@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@electron/remote": "^2.0.9",
+    "electron-about-window": "^1.15.2",
     "electron-is-dev": "^2.0.0",
     "robotjs": "^0.6.0",
     "vkey": "^1.0.1",

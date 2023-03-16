@@ -50,24 +50,21 @@ ipcRenderer.on('offer', (e, offer) => {
     pc.onicecandidate = (e) => {
         // 告知其他人
         if (e.candidate) {
-            // todo 1 加了 json.stringify
             ipcRenderer.send('forward', 'puppet-candidate',  JSON.stringify(e.candidate))
             console.log("-> e.candidate", JSON.stringify(e.candidate));
         }
     }
 
     ipcRenderer.on('candidate', (e, candidate) => {
-        // TODO 1 加了 json.stringify
         addIceCandidate(JSON.parse(candidate))
     })
 
 
     async function addIceCandidate(candidate) {
-        if (!candidate || !candidate.type) return
+        if (!candidate) return
         await pc.addIceCandidate(new RTCIceCandidate(candidate))
     }
 
-    window.addIceCandidate = addIceCandidate
 
     async function createAnswer(offer) {
         let stream = await getScreenStream()
@@ -79,7 +76,6 @@ ipcRenderer.on('offer', (e, offer) => {
         return pc.localDescription
     }
 
-    window.createAnswer = createAnswer
 
     createAnswer(offer).then((answer) => {
         ipcRenderer.send('forward', 'answer', {type: answer.type, sdp: answer.sdp})

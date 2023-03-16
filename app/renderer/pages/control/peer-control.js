@@ -63,19 +63,16 @@ createOffer().then((offer) => {
 
 ipcRenderer.on('answer', (e, answer) => {
     setRemote(answer).catch(e => {
-
     console.log("-> 设置错误e", e);
     })
 })
 
 ipcRenderer.on('candidate', (e, candidate) => {
-    // TODO 1 加了 json.stringify
     addIceCandidate(JSON.parse(candidate))
 })
 
 
 async function setRemote(answer) {
-    console.log("-> answer111111", answer);
     await pc.setRemoteDescription(answer)
     console.log('create-answer', pc)
 }
@@ -83,7 +80,6 @@ async function setRemote(answer) {
 pc.onicecandidate = (e) => {
     if (e.candidate) {
         console.log('candidate', JSON.stringify(e.candidate))
-        // TODO 1 加了一个  JSON.stringify
         ipcRenderer.send('forward', 'control-candidate', JSON.stringify(e.candidate))
         // 告知其他人
     }
@@ -91,7 +87,7 @@ pc.onicecandidate = (e) => {
 let candidates = []
 
 async function addIceCandidate(candidate) {
-    if (!candidate || !candidate.type) return
+    if (!candidate) return
     candidates.push(candidate)
     if (pc.remoteDescription && pc.remoteDescription.type) {
         for (let i = 0; i < candidates.length; i++) {
@@ -105,7 +101,6 @@ async function addIceCandidate(candidate) {
 pc.onaddstream = (e) => {
     console.log('addstream', e)
     peer.emit('add-stream', e.stream)
-
 }
 // peer.on('robot', (type, data) => {
 //     console.log('robot', type, data)

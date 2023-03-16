@@ -4,10 +4,7 @@ const vkey = require('vkey')
 
 function handleMouse(data) {
     let {clientX, clientY, screen, video} = data
-    // data {clientX, clientY, screen: {width, height}, video: {width, height}}
-    console.log("-> screen.width", screen.width);
-    console.log("-> video.width", video.width);
-    console.log("-> clientX", clientX);
+    // clientX 是在 控制端上标准距离，video 是傀儡端传给控制端的 screen 是傀儡端的 screen
     let x = clientX * screen.width / video.width
     let y = clientY * screen.height / video.height
     console.log(x, y)
