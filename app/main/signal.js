@@ -10,7 +10,6 @@ ws.on('open', function open() {
 
 ws.on('message', function incoming(message) {
     let data = JSON.parse(message)
-    console.log('data2222', data, message.toString());
     signal.emit(data.event, data.data)
 })
 

@@ -22,7 +22,7 @@ module.exports = function () {
     signal.on('be-controlled', (data) => {
         sendMainWindow('control-state-change', data.remote, 2)
     })
-    //
+
     // puppet、control共享的信道，就是转发
     ipcMain.on('forward', (e, event, data) => {
         signal.send('forward', {event, data})

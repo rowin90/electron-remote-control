@@ -5,6 +5,9 @@ const vkey = require('vkey')
 function handleMouse(data) {
     let {clientX, clientY, screen, video} = data
     // data {clientX, clientY, screen: {width, height}, video: {width, height}}
+    console.log("-> screen.width", screen.width);
+    console.log("-> video.width", video.width);
+    console.log("-> clientX", clientX);
     let x = clientX * screen.width / video.width
     let y = clientY * screen.height / video.height
     console.log(x, y)
