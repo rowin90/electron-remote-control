@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@electron/remote": "^2.0.9",
+    "fs-extra": "^11.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -11,7 +12,8 @@
   },
   "scripts": {
     "start": "cross-env BROWSER=none react-app-rewired start",
-    "build": "react-scripts build",
+    "build": "react-app-rewired build",
+    "postbuild": "node ./build.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,5 +41,6 @@
     "cross-env": "^7.0.3",
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.2.1"
-  }
+  },
+  "homepage": "./"
 }

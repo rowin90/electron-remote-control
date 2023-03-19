@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {ipcRenderer} from 'electron'
-const remote = window.require('@electron/remote')
 import './peer-puppet'
+const remote = window.require('@electron/remote')
 
 const {Menu, MenuItem} = remote
 
