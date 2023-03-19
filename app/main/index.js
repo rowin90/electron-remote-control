@@ -1,8 +1,10 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const isDev = require('electron-is-dev')
 const handleIPC = require('./ipc')
 const {create: createMainWindow, show: showMainWindow, close: closeMainWindow} = require('./windows/main')
 const {create: createControlWindow} = require('./windows/control')
+// const gotTheLock = true // 是不是有别的进程
 const gotTheLock = app.requestSingleInstanceLock() // 是不是有别的进程
 if (!gotTheLock) {
     app.quit()
@@ -14,6 +16,7 @@ if (!gotTheLock) {
         if(!isDev) {
             require('./updater.js')
         }
+        require('./crash-reporter').init()
     })
 
     app.on('ready', () => {
