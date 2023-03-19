@@ -4,9 +4,14 @@
   "description": "",
   "main": "./app/main/index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:render\" \"npm run start:main\" ",
+    "start": "concurrently \"npm run start:render\" \"npm run start:mai n\" ",
     "start:main": "electron .",
-    "start:render": "cd app/renderer/src/main && npm start"
+    "start:render": "cd app/renderer/src/main && npm start",
+    "build": "cd app/renderer/src/main && npm run build",
+    "pack:mac": "npm run build && NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --mac",
+    "pack:wi": "npm run build && cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --win --ia32",
+    "pack:win": " cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --win --ia32",
+    "postinstall": "electron-builder install-app-deps"
   },
   "keywords": [],
   "author": "饶驹",
@@ -16,6 +21,7 @@
     "cross-env": "^7.0.3",
     "customize-cra": "^1.0.0",
     "electron": "^23.1.1",
+    "electron-builder": "^23.6.0",
     "electron-rebuild": "^3.2.9",
     "react-app-rewired": "^2.2.1",
     "react-scripts": "^5.0.1",
@@ -24,9 +30,75 @@
   "dependencies": {
     "@electron/remote": "^2.0.9",
     "electron-about-window": "^1.15.2",
+    "electron-builder-squirrel-windows": "^24.0.0",
     "electron-is-dev": "^2.0.0",
+    "prebuild-install": "^7.1.1",
     "robotjs": "^0.6.0",
     "vkey": "^1.0.1",
     "ws": "^8.13.0"
+  },
+  "build": {
+    "appId": "com.electron.control",
+    "productName": "Control",
+    "files": "app",
+    "asar": false,
+    "extraMetadata": {
+      "main": "./app/main/index.js"
+    },
+    "extends": null,
+    "extraFiles": [
+      "app/renderer/**/src"
+    ],
+    "directories": {
+      "buildResources": "resource",
+      "output": "release"
+    },
+    "copyright": "Copyright © 2023 Jerome",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "icon": "resources/icon.icns",
+      "category": "public.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "dmg": {
+      "background": "resources/background.png",
+      "window": {
+        "width": 540,
+        "height": 380
+      },
+      "contents": [
+        {
+          "x": 410,
+          "y": 180,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 180,
+          "type": "file"
+        }
+      ],
+      "iconSize": 128
+    },
+    "win": {
+      "icon": "resources/icon.ico",
+      "target": [
+        "squirrel",
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "language": "2052",
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://raw.githubusercontent.com/dengyaolong/geektime-electron/master/img/icon.ico"
+    }
   }
 }

@@ -1,5 +1,6 @@
 const {BrowserWindow} = require('electron')
 const isDev = require('electron-is-dev')
+const path = require('path')
 
 
 let win
@@ -29,7 +30,6 @@ function create () {
     if (isDev) {
         win.loadURL('http://localhost:3000')
     } else {
-        // 第三章用到
         win.loadFile(path.resolve(__dirname, '../../renderer/pages/main/index.html'))
     }
 }
