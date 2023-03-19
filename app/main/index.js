@@ -14,7 +14,8 @@ if (!gotTheLock) {
     })
     app.on('will-finish-launching', () => {
         if(!isDev) {
-            require('./updater.js')
+            // 暂时隐藏，需要证书
+            //require('./updater.js')
         }
         require('./crash-reporter').init()
     })

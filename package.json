@@ -8,7 +8,7 @@
     "start:main": "electron .",
     "start:render": "cd app/renderer/src/main && npm start",
     "build": "cd app/renderer/src/main && npm run build",
-    "pack:mac": "npm run build && NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --mac",
+    "pack:mac": "npm run build && cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --mac",
     "pack:wi": "npm run build && cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --win --ia32",
     "pack:win": " cross-env NPM_CONFIG_ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ electron-builder build --win --ia32",
     "postinstall": "electron-builder install-app-deps"
@@ -53,7 +53,7 @@
       "buildResources": "resource",
       "output": "release"
     },
-    "copyright": "Copyright © 2023 Jerome",
+    "copyright": "Copyright © 2023 Rowin",
     "mac": {
       "target": [
         "dmg",

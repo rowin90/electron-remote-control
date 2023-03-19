@@ -1,8 +1,11 @@
 const WebSocket = require('ws');
 const EventEmitter = require('events');
 const signal = new EventEmitter();
+const isDev = require('electron-is-dev')
 
-const ws = new WebSocket('ws://127.0.0.1:8010');
+const SERVER_IP = isDev ?'ws://localhost':'ws://42.192.152.22'
+const PORT = '8010'
+const ws = new WebSocket(SERVER_IP + ':' + PORT);
 
 ws.on('open', function open() {
     console.log('connect success')
