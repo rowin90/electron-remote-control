@@ -10,6 +10,12 @@ if (!gotTheLock) {
     app.on('second-instance', () => {
         showMainWindow()
     })
+    app.on('will-finish-launching', () => {
+        if(!isDev) {
+            require('./updater.js')
+        }
+    })
+
     app.on('ready', () => {
         createMainWindow()
         handleIPC()
