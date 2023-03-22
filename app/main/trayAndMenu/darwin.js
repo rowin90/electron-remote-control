@@ -40,7 +40,46 @@ function setAppMenu() {
         },
 		{ role: 'fileMenu' },
 		{ role: 'windowMenu' },
-		{ role: 'editMenu' }
+		{ role: 'editMenu' },
+        {
+            label: '视图',
+            submenu: [
+                {
+                    label: '刷新当前页面',
+                    accelerator: 'CmdOrCtrl+R',
+                    click: (item, focusedWindow) => {
+                        if (focusedWindow)
+                            focusedWindow.reload();
+                    }
+                },
+                {
+                    label: '切换全屏幕',
+                    accelerator: (() => {
+                        if (process.platform === 'darwin')
+                            return 'Ctrl+Command+F';
+                        else
+                            return 'F11';
+                    })(),
+                    click: (item, focusedWindow) => {
+                        if (focusedWindow)
+                            focusedWindow.setFullScreen(!focusedWindow.isFullScreen());
+                    }
+                },
+                {
+                    label: '切换开发者工具',
+                    accelerator: (function() {
+                        if (process.platform === 'darwin')
+                            return 'Alt+Command+I';
+                        else
+                            return 'Ctrl+Shift+I';
+                    })(),
+                    click: (item, focusedWindow) => {
+                        if (focusedWindow)
+                            focusedWindow.toggleDevTools();
+                    }
+                },
+            ]
+        },
     ]);
     app.applicationMenu = appMenu
 }
